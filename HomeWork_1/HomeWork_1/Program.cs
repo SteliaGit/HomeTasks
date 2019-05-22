@@ -25,7 +25,6 @@ namespace HomeWork_1
                 Console.WriteLine("3 - Выход из программы"); 
 
                 int.TryParse(Console.ReadLine(), out input);
-
                 switch (input)
                 {
                     case 1:
