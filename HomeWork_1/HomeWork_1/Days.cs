@@ -4,21 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeWork_1
+namespace HomeWork
 {
     class Days
     {
-        public void GetNameDay()
+        public void Show()
         {
-            int input;
             Console.Clear();
-            do
-            {
-                Console.WriteLine(new string('-', 73));
-                Console.WriteLine("Введите порядковый номер дня недели (от 1 до 7) || Для выхода нажмите - 11");                
-                Console.WriteLine(new string('-', 73));
-                // string input = Console.ReadLine();
-                int.TryParse(Console.ReadLine(), out input);
+            int input;
+            Console.WriteLine(new string('-', 73));
+            Console.WriteLine("Введите порядковый номер дня недели (от 1 до 7) || Для выхода нажмите - 0");
+            Console.WriteLine(new string('-', 73));
+            // string input = Console.ReadLine();
+            int.TryParse(Console.ReadLine(), out input);
+            GetNameDay(input);
+        }
+
+        public void GetNameDay(int input = 0)
+        {        
+            while (input != 0)
+            {                
                 string FirstWord = $"Выбранный номер - {input}, соответствует дню: ";
                 switch (input)
                 {
@@ -57,9 +62,9 @@ namespace HomeWork_1
                             Console.WriteLine(FirstWord + "Воскресенье");
                             break;
                         }
-                    case 11:
+                    case 0:
                         {
-                            Console.WriteLine("Сейчас будет произведен выход в главное меню");
+                            // Console.WriteLine("Сейчас будет произведен выход в главное меню");
                             break;
                         }
                     default:
@@ -71,7 +76,9 @@ namespace HomeWork_1
                 Console.WriteLine("Для продолжения нажмите - ENTER");
                 Console.ReadKey();
                 Console.Clear();
-            } while (input != 11);      
+                input = 0;
+                Show();
+            }      
         }        
     }
 }

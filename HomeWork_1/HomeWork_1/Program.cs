@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeWork_1
+namespace HomeWork
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Days days;
-            Multiplication multiplication;
-
             int input = 0;
             while (input != 3) 
             {
@@ -29,14 +26,14 @@ namespace HomeWork_1
                 {
                     case 1:
                         {
-                            days = new Days();
-                            days.GetNameDay();
+                            Days days = new Days();
+                            days.Show();
                             break;
                         }
                     case 2:
                         {
-                            multiplication = new Multiplication();
-                            multiplication.GetMultiplication();
+                            Multiplication multiplication = new Multiplication();
+                            multiplication.Show();
                             break;
                         }
                     case 3:
