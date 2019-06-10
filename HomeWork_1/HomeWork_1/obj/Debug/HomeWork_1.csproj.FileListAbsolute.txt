@@ -1,0 +1,7 @@
+D:\C#\GitHab\HomeTasks\HomeWork_1\HomeWork_1\bin\Debug\HomeWork_1.exe.config
+D:\C#\GitHab\HomeTasks\HomeWork_1\HomeWork_1\bin\Debug\HomeWork_1.exe
+D:\C#\GitHab\HomeTasks\HomeWork_1\HomeWork_1\bin\Debug\HomeWork_1.pdb
+D:\C#\GitHab\HomeTasks\HomeWork_1\HomeWork_1\obj\Debug\HomeWork_1.csprojAssemblyReference.cache
+D:\C#\GitHab\HomeTasks\HomeWork_1\HomeWork_1\obj\Debug\HomeWork_1.csproj.CoreCompileInputs.cache
+D:\C#\GitHab\HomeTasks\HomeWork_1\HomeWork_1\obj\Debug\HomeWork_1.exe
+D:\C#\GitHab\HomeTasks\HomeWork_1\HomeWork_1\obj\Debug\HomeWork_1.pdb
