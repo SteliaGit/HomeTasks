@@ -26,15 +26,13 @@ namespace Taxis
                     case 1:
                         {
                             PassengerCar passengerCar = new PassengerCar();
-                            passengerCar.CreateCar();
-                            input = 3;                            
+                            passengerCar.CreateCar();                                                       
                             break;
                         }
                     case 2:
                         {
                             Truck truck = new Truck();
                             truck.CreateCar();
-                            input = 3;
                             break;
                         }
                     case 3:
@@ -69,7 +67,7 @@ namespace Taxis
                 }
                 else
                 {
-                    item.ID = 0; 
+                    item.IsDelited = 0; 
                 }
             }
             Repository.SaveDeletePass();
@@ -89,18 +87,19 @@ namespace Taxis
                 }
                 else
                 {
-                    item.ID = 0;
+                    item.IsDelited = 0;
                 }
             }
             Repository.SaveDeleteTruck();
-        }// Удаление происходит с помощью перевода ID в 0
+        }// Удаление происходит с помощью перевода IsDelited в 0
         public void ShowPassangerCars(List<PassengerCar> passCar)
         {
+            
             Console.WriteLine("   ID\t|\tModel \t |\t Number of seats \t| Fuel consumption. litrs/ 100 km |\tSpeed\t|\tCost $");
             Console.WriteLine("");
             foreach (PassengerCar item in passCar)
             {
-                if (item.ID == 0)
+                if (item.IsDelited == 0)
                 {
                     continue;
                 }
@@ -118,7 +117,7 @@ namespace Taxis
             Console.WriteLine("");
             foreach (Truck item in truckCar)
             {
-                if (item.ID == 0)
+                if (item.IsDelited == 0)
                 {
                     continue;
                 }
@@ -136,7 +135,7 @@ namespace Taxis
             Console.WriteLine("");
             foreach (PassengerCar item in input)
             {
-                if (item.ID == 0)
+                if (item.IsDelited == 0)
                 {
                     continue;
                 }
@@ -153,7 +152,7 @@ namespace Taxis
             Console.WriteLine("");
             foreach (Truck item in input)
             {
-                if (item.ID == 0)
+                if (item.IsDelited == 0)
                 {
                     continue;
                 }
@@ -188,14 +187,28 @@ namespace Taxis
             int resultPassCars = 0;
             foreach (var item in Repository.PassCars)
             {
-                cost = int.Parse(item.Cost.ToString());
-                resultPassCars = resultPassCars + cost;
+                if (item.IsDelited == 0)
+                {
+                    continue;
+                }
+                else
+                {
+                    cost = int.Parse(item.Cost.ToString());
+                    resultPassCars = resultPassCars + cost;
+                }
             }
             int result = resultPassCars;
             foreach (var item in Repository.Trucks)
             {
-                cost = int.Parse(item.Cost.ToString());
-                result = result + cost;
+                if (item.IsDelited == 0)
+                {
+                    continue;
+                }
+                else
+                {
+                    cost = int.Parse(item.Cost.ToString());
+                    result = result + cost;
+                }
             }
             return result;
         }       
@@ -222,13 +235,16 @@ namespace Taxis
                         Seats = int.Parse(item.Seats.ToString()),
                         Fuel = double.Parse(item.Fuel.ToString()),
                         Speed = speed,
-                        Cost = double.Parse(item.Cost.ToString())
+                        Cost = double.Parse(item.Cost.ToString()),
+                        IsDelited = int.Parse(item.IsDelited.ToString())
                     });
                 }
             }
             if (passengers.Count == 0)
             {
                 Console.WriteLine("There is no car with such speed in the database");
+                Console.WriteLine("To continue, click - ENTER");
+                Console.ReadKey();
             }
             else
             {
@@ -259,11 +275,22 @@ namespace Taxis
                         Сarrying = int.Parse(item.Сarrying.ToString()),
                         Fuel = double.Parse(item.Fuel.ToString()),
                         Speed = speed,
-                        Cost = double.Parse(item.Cost.ToString())
+                        Cost = double.Parse(item.Cost.ToString()),
+                        IsDelited = int.Parse(item.IsDelited.ToString())
                     });
                 }
             }
-            ShowTruks(Trucks);
+            if (Trucks.Count == 0)
+            {
+                Console.WriteLine("There is no car with such speed in the database");
+                Console.WriteLine("To continue, click - ENTER");
+                Console.ReadKey();
+            }
+            else
+            {
+                ShowTruks(Trucks); 
+            }
+            
         }
     }
 }

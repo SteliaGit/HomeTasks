@@ -8,12 +8,13 @@ namespace Taxis
 {
     public class PassengerCar : ICar
     {
-        public int ID { get; set; }
+        public double ID { get; set; }
         public int Seats { get; set; }
         public string Model { get; set; }
         public double Fuel { get; set; }
         public double Speed { get; set; }
         public double Cost { get; set; }
+        public int IsDelited { get; set; }
 
         public void CreateCar()
         {

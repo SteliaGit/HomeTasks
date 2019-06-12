@@ -9,16 +9,14 @@ namespace Taxis
     class ConsoleView
     {       
         static void Main(string[] args)
-        {
-            Repository.LoadPassengerCars();
-            Repository.LoadTrucks();
+        {    
             int input = 1;
             int subInput = 1;
             Logic logic = new Logic(); ;
             while (input != 7)
             {
-                
-
+                Repository.LoadPassengerCars();
+                Repository.LoadTrucks();
                 Console.WriteLine(new string('-', 10));
                 Console.WriteLine("Taxi park");
                 Console.WriteLine(new string('-', 10));
@@ -39,18 +37,20 @@ namespace Taxis
                             Console.Clear();
                             Console.WriteLine("Report:");
                             Console.WriteLine("1 - Passenger Cars");
-                            Console.WriteLine("2 - Truks");
+                            Console.WriteLine("2 - Trucks");
 
                             int.TryParse(Console.ReadLine(), out subInput);
                             switch (subInput)
                             {
                                 case 1:
-                                    {                                        
+                                    {
+                                        
                                         logic.ShowPassangerCars(Repository.PassCars);
                                         break;
                                     }
                                 case 2:
                                     {
+                                        
                                         logic.ShowTruks(Repository.Trucks);
                                         break;
                                     }
@@ -69,7 +69,7 @@ namespace Taxis
                             Console.Clear();
                             Console.WriteLine("Sort cars (by fuel consumption):");
                             Console.WriteLine("1 - Passenger Cars");
-                            Console.WriteLine("2 - Truks");
+                            Console.WriteLine("2 - Trucks");
                             int.TryParse(Console.ReadLine(), out subInput);
                             switch (subInput)
                             {
@@ -98,7 +98,7 @@ namespace Taxis
                             Console.Clear();
                             Console.WriteLine("Search cars (by speed):");
                             Console.WriteLine("1 - Passenger Cars");
-                            Console.WriteLine("2 - Truks");
+                            Console.WriteLine("2 - Trucks");
                             int.TryParse(Console.ReadLine(), out subInput);
                             switch (subInput)
                             {
@@ -132,7 +132,7 @@ namespace Taxis
                             Console.Clear();
                             Console.WriteLine("Remove car:");
                             Console.WriteLine("1 - Passenger Cars");
-                            Console.WriteLine("2 - Truks");
+                            Console.WriteLine("2 - Trucks");
 
                             int.TryParse(Console.ReadLine(), out subInput);
                             switch (subInput)
